@@ -28,6 +28,7 @@ targetCompatibility = 1.8
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.mongodb:mongodb-driver:3.6.3")
     testCompile("junit:junit")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
