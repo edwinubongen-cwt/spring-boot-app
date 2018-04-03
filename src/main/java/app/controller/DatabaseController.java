@@ -15,7 +15,7 @@ public class DatabaseController {
 	MongoRepositoryService mongoRepositoryService;
 	
 	@RequestMapping("/test-connection")
-    public String index() {
+    public String testConnection() {
 		String output = "";
     	System.out.println("Testing connection...");
     	if (!Objects.isNull(mongoRepositoryService.getCollection())) {
@@ -26,5 +26,45 @@ public class DatabaseController {
     	}
 		System.out.println(output);
         return output;
+    }
+	
+	@RequestMapping("/create-document")
+    public void createRecord() {
+		mongoRepositoryService.insertDocument();
+    }
+
+	@RequestMapping("/create-many-documents")
+    public void createManyRecords() {
+		mongoRepositoryService.insertManyDocuments();
+    }
+	
+	@RequestMapping("/get-first-document")
+    public String getFirstDocument() {
+		return mongoRepositoryService.getFirstDocument().toJson();
+    }
+	
+	@RequestMapping("/get-documents")
+    public String getDocuments() {
+		return mongoRepositoryService.getDocuments();
+    }
+	
+	@RequestMapping("/update-document")
+    public boolean updateDocument() {
+		return mongoRepositoryService.updateDocument().wasAcknowledged();
+    }
+
+	@RequestMapping("/update-documents")
+    public long updateManyDocuments() {
+		return mongoRepositoryService.updateManyDocuments();
+    }
+	
+	@RequestMapping("/delete-document")
+    public boolean deleteDocument() {
+		return mongoRepositoryService.deleteDocument().wasAcknowledged();
+    }
+	
+	@RequestMapping("/delete-documents")
+    public long deleteDocuments() {
+		return mongoRepositoryService.deleteDocuments().getDeletedCount();
     }
 }
