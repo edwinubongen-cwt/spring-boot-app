@@ -101,4 +101,6 @@ public class MongoRepositoryService {
 		System.out.println("Deleting documents...");
 		return testCollection.deleteMany(eq("type", "database"));
 	}
+	
+	// TEST
 }
