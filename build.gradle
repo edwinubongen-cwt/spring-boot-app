@@ -29,6 +29,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.mongodb:mongodb-driver:3.6.3")
+    compile 'org.springframework.kafka:spring-kafka:2.1.5.RELEASE'
     testCompile("junit:junit")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
